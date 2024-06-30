@@ -47,6 +47,11 @@ const RegisterModal = () => {
       });
   };
 
+  const toggle = useCallback(() => {
+    registerModal.onClose();
+    loginModal.onOpen();
+  }, [loginModal, registerModal]);
+
   const bodyContent = (
     <div className='flex flex-col gap-4'>
       <Heading title='Welcome to ZenoStay' subtitle='Create an account!' />
@@ -98,10 +103,7 @@ const RegisterModal = () => {
           <div>Already have an account?</div>
           <div
             className='text-neutral-800 cursor-pointer hover:underline font-medium'
-            onClick={() => {
-              registerModal.onClose();
-              loginModal.onOpen();
-            }}
+            onClick={toggle}
           >
             Login
           </div>
