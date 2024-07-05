@@ -29,13 +29,13 @@ export default async function RootLayout({
   return (
     <html lang='en'>
       <body className={font.className}>
-        <ClientOnly>
-          <ToasterProvider />
-          <RegisterModal />
-          <LoginModal />
-          <RentModal />
-          <Navbar currentUser={currentUser} />
-        </ClientOnly>
+        {/* <ClientOnly> */}
+        <ToasterProvider />
+        <RegisterModal />
+        <LoginModal />
+        <RentModal />
+        <Navbar currentUser={currentUser} />
+        {/* </ClientOnly> */}
         <div className='pb-20 pt-32'>{children}</div>
       </body>
     </html>
