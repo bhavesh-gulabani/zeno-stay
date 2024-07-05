@@ -3,10 +3,12 @@
 import { AiOutlineMenu } from 'react-icons/ai';
 import Avatar from '../Avatar';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+
 import MenuItem from './MenuItem';
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import useLoginModal from '@/app/hooks/useLoginModal';
-import { signOut } from 'next-auth/react';
 import { SafeUser } from '@/types';
 import useRentModal from '@/app/hooks/useRentModal';
 
@@ -15,6 +17,7 @@ interface UserMenuProps {
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+  const router = useRouter();
   const menuRef = useRef<HTMLDivElement>(null);
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
@@ -72,7 +75,13 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           <div className='flex flex-col cursor-pointer'>
             {currentUser ? (
               <>
-                <MenuItem onClick={() => {}} label='My trips' />
+                <MenuItem
+                  onClick={() => {
+                    router.push('/trips');
+                    toggleOpen();
+                  }}
+                  label='My trips'
+                />
                 <MenuItem onClick={() => {}} label='My favorites' />
                 <MenuItem onClick={() => {}} label='My reservations' />
                 <MenuItem onClick={() => {}} label='My properties' />
