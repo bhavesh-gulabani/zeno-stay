@@ -9,12 +9,14 @@ interface EmptyState {
   title?: string;
   subtitle?: string;
   showReset?: boolean;
+  actionLabel?: string;
 }
 
 const EmptyState: React.FC<EmptyState> = ({
   title = 'No exact matches',
   subtitle = 'Try changing or removing some of your filters',
   showReset,
+  actionLabel,
 }) => {
   const router = useRouter();
   return (
@@ -25,6 +27,13 @@ const EmptyState: React.FC<EmptyState> = ({
           <Button
             outline
             label='Remove all filters'
+            onClick={() => router.push('/')}
+          />
+        )}
+        {actionLabel && (
+          <Button
+            outline
+            label={actionLabel}
             onClick={() => router.push('/')}
           />
         )}
