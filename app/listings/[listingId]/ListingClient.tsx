@@ -9,11 +9,11 @@ import { Range } from 'react-date-range';
 
 import { SafeListing, SafeReservation, SafeUser } from '@/types';
 import { categories } from '@/app/constants';
-import Container from '../Container';
-import ListingHead from './ListingHead';
-import ListingInfo from './ListingInfo';
+import Container from '@/app/components/Container';
+import ListingHead from '@/app/components/listings/ListingHead';
+import ListingInfo from '@/app/components/listings/ListingInfo';
 import useLoginModal from '@/app/hooks/useLoginModal';
-import ListingReservation from './ListingReservation';
+import ListingReservation from '@/app/components/listings/ListingReservation';
 
 const initialDateRange = {
   startDate: new Date(),
