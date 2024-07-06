@@ -31,7 +31,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
         formatOptionLabel={(option: any) => (
           <div className='flex flex-row items-center gap-3'>
             <Image
-              src={`/images/flags/${option.code}.svg`}
+              src={`/images/flags/${option.code.toLowerCase()}.svg`}
               width={20}
               height={20}
               alt='Flag'
